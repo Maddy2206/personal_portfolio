@@ -1,11 +1,11 @@
 import { Navigation } from "./Navigation";
 import { HeroSection } from "./sections/HeroSection";
 import { AboutSection } from "./sections/AboutSection";
-import { EducationSection } from "./sections/EducationSection";
+
 import { ExperienceSection } from "./sections/ExperienceSection";
 import { ProjectsSection } from "./sections/ProjectsSection";
 import { AchievementsSection } from "./sections/AchievementsSection";
-import { ExtracurricularsSection } from "./sections/ExtracurricularsSection";
+
 import { ContactSection } from "./sections/ContactSection";
 
 export const Portfolio = () => {
@@ -22,9 +22,6 @@ export const Portfolio = () => {
           <AboutSection />
         </div>
         
-        <div id="education">
-          <EducationSection />
-        </div>
         
         <div id="experience">
           <ExperienceSection />
@@ -38,9 +35,6 @@ export const Portfolio = () => {
           <AchievementsSection />
         </div>
         
-        <div id="extracurriculars">
-          <ExtracurricularsSection />
-        </div>
         
         <div id="contact">
           <ContactSection />

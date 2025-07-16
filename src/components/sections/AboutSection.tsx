@@ -81,55 +81,99 @@ export const AboutSection = () => {
           animate={inView ? "visible" : "hidden"}
           className="max-w-6xl mx-auto"
         >
-          {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-text-primary mb-6">
-              About Me
-            </h2>
-            <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
-            <p className="text-lg text-text-secondary max-w-3xl mx-auto leading-relaxed">
-              I'm a passionate full-stack developer and competitive programmer pursuing B.Tech at IIT Mandi. 
-              I love creating efficient, scalable solutions and pushing the boundaries of what's possible with code. 
-              When I'm not coding, you'll find me on the table tennis court leading my team to victory.
-            </p>
-          </motion.div>
+          {/* Two Column Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            {/* Left Side - Education */}
+            <motion.div variants={itemVariants} className="space-y-8">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
+                  Education
+                </h2>
+                <div className="w-16 h-1 bg-gradient-primary mb-8"></div>
+              </div>
 
-          {/* Traits Grid */}
-          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {traits.map((trait, index) => (
-              <motion.div
-                key={trait.title}
-                variants={itemVariants}
-                className="bg-portfolio-elevated rounded-xl p-6 text-center hover:bg-portfolio-glass transition-all duration-300 border border-white/5"
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full mb-4">
-                  <trait.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-text-primary mb-2">{trait.title}</h3>
-                <p className="text-text-muted text-sm">{trait.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Skills Section */}
-          <motion.div variants={itemVariants}>
-            <h3 className="text-2xl font-bold text-text-primary text-center mb-8">
-              Technologies & Skills
-            </h3>
-            <div className="flex flex-wrap justify-center gap-3">
-              {skills.map((skill, index) => (
-                <motion.span
-                  key={skill.name}
+              {/* Education Timeline */}
+              <div className="relative">
+                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-primary"></div>
+                
+                <motion.div
                   variants={itemVariants}
-                  whileHover={{ scale: 1.05 }}
-                  className="px-4 py-2 bg-portfolio-glass rounded-full text-text-secondary border border-white/10 
-                           hover:border-accent-primary/50 hover:text-accent-primary transition-all duration-300 cursor-default"
+                  className="relative bg-portfolio-elevated rounded-xl p-6 ml-16 border border-white/10"
                 >
-                  {skill.name}
-                </motion.span>
-              ))}
-            </div>
-          </motion.div>
+                  <div className="absolute -left-16 top-6 w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">🎓</span>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-text-primary mb-2">
+                    B.Tech in Computer Science & Engineering
+                  </h3>
+                  <h4 className="text-lg text-accent-primary font-semibold mb-2">
+                    IIT Mandi
+                  </h4>
+                  <p className="text-text-muted mb-4">2021 – Present</p>
+                  
+                  <div className="space-y-2 text-text-secondary">
+                    <div className="flex items-center">
+                      <span className="w-2 h-2 bg-accent-primary rounded-full mr-3"></span>
+                      <span>Team Captain - Table Tennis (56th Inter-IIT Sports Meet)</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="w-2 h-2 bg-accent-primary rounded-full mr-3"></span>
+                      <span>Competitive Programming Enthusiast</span>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="w-2 h-2 bg-accent-primary rounded-full mr-3"></span>
+                      <span>Active in Technical Societies</span>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Right Side - Technologies & Skills */}
+            <motion.div variants={itemVariants} className="space-y-8">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
+                  Technologies & Skills
+                </h2>
+                <div className="w-16 h-1 bg-gradient-primary mb-8"></div>
+              </div>
+
+              {/* Skills by Category */}
+              <div className="space-y-6">
+                {Object.entries(
+                  skills.reduce((acc, skill) => {
+                    if (!acc[skill.category]) acc[skill.category] = [];
+                    acc[skill.category].push(skill.name);
+                    return acc;
+                  }, {} as Record<string, string[]>)
+                ).map(([category, categorySkills]) => (
+                  <motion.div
+                    key={category}
+                    variants={itemVariants}
+                    className="bg-portfolio-elevated rounded-xl p-6 border border-white/10"
+                  >
+                    <h3 className="text-lg font-semibold text-text-primary mb-4">
+                      {category}
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {categorySkills.map((skill) => (
+                        <motion.span
+                          key={skill}
+                          whileHover={{ scale: 1.05 }}
+                          className="px-3 py-1 bg-portfolio-glass rounded-full text-sm text-text-secondary border border-white/10 
+                                   hover:border-accent-primary/50 hover:text-accent-primary transition-all duration-300 cursor-default"
+                        >
+                          {skill}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
