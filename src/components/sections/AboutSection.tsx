@@ -140,36 +140,17 @@ export const AboutSection = () => {
                 <div className="w-16 h-1 bg-gradient-primary mb-8"></div>
               </div>
 
-              {/* Skills by Category */}
-              <div className="space-y-6">
-                {Object.entries(
-                  skills.reduce((acc, skill) => {
-                    if (!acc[skill.category]) acc[skill.category] = [];
-                    acc[skill.category].push(skill.name);
-                    return acc;
-                  }, {} as Record<string, string[]>)
-                ).map(([category, categorySkills]) => (
-                  <motion.div
-                    key={category}
-                    variants={itemVariants}
-                    className="bg-portfolio-elevated rounded-xl p-6 border border-white/10"
+              {/* Skills as Tags */}
+              <div className="flex flex-wrap gap-3">
+                {skills.map((skill) => (
+                  <motion.span
+                    key={skill.name}
+                    whileHover={{ scale: 1.05 }}
+                    className="px-4 py-2 bg-portfolio-glass rounded-full text-text-secondary border border-white/10 
+                             hover:border-accent-primary/50 hover:text-accent-primary transition-all duration-300 cursor-default"
                   >
-                    <h3 className="text-lg font-semibold text-text-primary mb-4">
-                      {category}
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {categorySkills.map((skill) => (
-                        <motion.span
-                          key={skill}
-                          whileHover={{ scale: 1.05 }}
-                          className="px-3 py-1 bg-portfolio-glass rounded-full text-sm text-text-secondary border border-white/10 
-                                   hover:border-accent-primary/50 hover:text-accent-primary transition-all duration-300 cursor-default"
-                        >
-                          {skill}
-                        </motion.span>
-                      ))}
-                    </div>
-                  </motion.div>
+                    {skill.name}
+                  </motion.span>
                 ))}
               </div>
             </motion.div>
