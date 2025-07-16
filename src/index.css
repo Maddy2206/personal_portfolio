@@ -8,37 +8,37 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Core backgrounds */
+    /* Light theme - Default colors */
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     
-    /* Dark theme - Modern portfolio colors */
-    --portfolio-bg: 240 10% 3.9%;
-    --portfolio-surface: 240 6% 8%;
-    --portfolio-elevated: 240 4% 12%;
-    --portfolio-glass: 240 4% 16%;
+    /* Light theme portfolio colors */
+    --portfolio-bg: 0 0% 98%;
+    --portfolio-surface: 0 0% 100%;
+    --portfolio-elevated: 0 0% 96%;
+    --portfolio-glass: 0 0% 94%;
     
-    /* Text colors */
-    --text-primary: 0 0% 98%;
-    --text-secondary: 240 5% 84%;
-    --text-muted: 240 4% 64%;
+    /* Light theme text colors */
+    --text-primary: 240 10% 3.9%;
+    --text-secondary: 240 6% 20%;
+    --text-muted: 240 4% 46%;
     
-    /* Accent colors */
+    /* Accent colors (same for both themes) */
     --accent-primary: 217 91% 60%;
     --accent-secondary: 262 83% 58%;
     --accent-success: 142 76% 36%;
     --accent-warning: 38 92% 50%;
     
-    /* Gradients */
+    /* Light theme gradients */
     --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(262 83% 58%) 100%);
-    --gradient-surface: linear-gradient(135deg, hsl(240 6% 8%) 0%, hsl(240 4% 12%) 100%);
-    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    --gradient-surface: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(0 0% 96%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.4) 100%);
     
-    /* Glass morphism */
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    /* Light theme glass morphism */
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     
-    /* Standard shadcn colors */
+    /* Standard shadcn light colors */
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
@@ -60,25 +60,47 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: hsl(var(--portfolio-bg));
-    --foreground: hsl(var(--text-primary));
-    --card: hsl(var(--portfolio-surface));
-    --card-foreground: hsl(var(--text-primary));
-    --popover: hsl(var(--portfolio-elevated));
-    --popover-foreground: hsl(var(--text-primary));
-    --primary: hsl(var(--accent-primary));
-    --primary-foreground: hsl(var(--portfolio-bg));
-    --secondary: hsl(var(--portfolio-surface));
-    --secondary-foreground: hsl(var(--text-secondary));
-    --muted: hsl(var(--portfolio-elevated));
-    --muted-foreground: hsl(var(--text-muted));
-    --accent: hsl(var(--portfolio-glass));
-    --accent-foreground: hsl(var(--text-primary));
+    /* Dark theme backgrounds */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    
+    /* Dark theme portfolio colors */
+    --portfolio-bg: 240 10% 3.9%;
+    --portfolio-surface: 240 6% 8%;
+    --portfolio-elevated: 240 4% 12%;
+    --portfolio-glass: 240 4% 16%;
+    
+    /* Dark theme text colors */
+    --text-primary: 0 0% 98%;
+    --text-secondary: 240 5% 84%;
+    --text-muted: 240 4% 64%;
+    
+    /* Dark theme gradients */
+    --gradient-surface: linear-gradient(135deg, hsl(240 6% 8%) 0%, hsl(240 4% 12%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    
+    /* Dark theme glass morphism */
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    
+    /* Dark theme shadcn colors */
+    --card: 240 6% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 4% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 240 10% 3.9%;
+    --secondary: 240 6% 8%;
+    --secondary-foreground: 240 5% 84%;
+    --muted: 240 4% 12%;
+    --muted-foreground: 240 4% 64%;
+    --accent: 240 4% 16%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: hsl(var(--text-primary));
-    --border: hsl(var(--portfolio-elevated));
-    --input: hsl(var(--portfolio-elevated));
-    --ring: hsl(var(--accent-primary));
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 4% 12%;
+    --input: 240 4% 12%;
+    --ring: 217 91% 60%;
   }
 }
 
