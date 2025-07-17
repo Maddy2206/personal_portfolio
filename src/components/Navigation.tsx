@@ -56,8 +56,8 @@ export const Navigation = () => {
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-portfolio-surface/80 backdrop-blur-md border-b border-white/10"
-            : "bg-transparent"
+            ? "bg-background/80 backdrop-blur-md border-b border-border shadow-lg"
+            : "bg-background/20 backdrop-blur-sm border-b border-border/20"
         }`}
       >
         <div className="container mx-auto px-6">
@@ -72,7 +72,8 @@ export const Navigation = () => {
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center justify-center flex-1">
+              <div className="flex items-center space-x-8">
               {navItems.map((item) => (
                 <button
                   key={item.label}
@@ -86,8 +87,11 @@ export const Navigation = () => {
                   {item.label}
                 </button>
               ))}
+              </div>
+            </div>
               
-              {/* Theme Toggle Button */}
+            {/* Theme Toggle Button */}
+            <div className="hidden md:block">
               <Button
                 variant="ghost"
                 size="sm"

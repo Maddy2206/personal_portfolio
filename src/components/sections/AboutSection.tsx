@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Code, Database, Globe, Zap } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const skills = [
   { name: "Next.js", category: "Frontend" },
@@ -85,74 +86,69 @@ export const AboutSection = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             
             {/* Left Side - Education */}
-            <motion.div variants={itemVariants} className="space-y-8">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
-                  Education
-                </h2>
-                <div className="w-16 h-1 bg-gradient-primary mb-8"></div>
-              </div>
-
-              {/* Education Timeline */}
-              <div className="relative">
-                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-primary"></div>
-                
-                <motion.div
-                  variants={itemVariants}
-                  className="relative bg-portfolio-elevated rounded-xl p-6 ml-16 border border-white/10"
-                >
-                  <div className="absolute -left-16 top-6 w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">🎓</span>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-text-primary mb-2">
-                    B.Tech in Computer Science & Engineering
-                  </h3>
-                  <h4 className="text-lg text-accent-primary font-semibold mb-2">
-                    IIT Mandi
-                  </h4>
-                  <p className="text-text-muted mb-4">2021 – Present</p>
-                  
-                  <div className="space-y-2 text-text-secondary">
-                    <div className="flex items-center">
-                      <span className="w-2 h-2 bg-accent-primary rounded-full mr-3"></span>
-                      <span>Team Captain - Table Tennis (56th Inter-IIT Sports Meet)</span>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="w-2 h-2 bg-accent-primary rounded-full mr-3"></span>
-                      <span>Competitive Programming Enthusiast</span>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="w-2 h-2 bg-accent-primary rounded-full mr-3"></span>
-                      <span>Active in Technical Societies</span>
+            <motion.div variants={itemVariants}>
+              <Card className="border border-border/50 bg-card/80 backdrop-blur-sm shadow-lg">
+                <CardHeader>
+                  <CardTitle className="text-3xl md:text-4xl font-bold text-foreground flex items-center gap-4">
+                    <span className="text-2xl">🎓</span>
+                    Education
+                  </CardTitle>
+                  <div className="w-16 h-1 bg-gradient-primary"></div>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-foreground">
+                      B.Tech in Computer Science & Engineering
+                    </h3>
+                    <h4 className="text-lg text-primary font-semibold">
+                      IIT Mandi
+                    </h4>
+                    <p className="text-muted-foreground">2021 – Present</p>
+                    
+                    <div className="space-y-3 mt-4">
+                      <div className="flex items-center">
+                        <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                        <span className="text-muted-foreground">Team Captain - Table Tennis (56th Inter-IIT Sports Meet)</span>
+                      </div>
+                      <div className="flex items-center">
+                        <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                        <span className="text-muted-foreground">Competitive Programming Enthusiast</span>
+                      </div>
+                      <div className="flex items-center">
+                        <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                        <span className="text-muted-foreground">Active in Technical Societies</span>
+                      </div>
                     </div>
                   </div>
-                </motion.div>
-              </div>
+                </CardContent>
+              </Card>
             </motion.div>
 
             {/* Right Side - Technologies & Skills */}
-            <motion.div variants={itemVariants} className="space-y-8">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
-                  Technologies & Skills
-                </h2>
-                <div className="w-16 h-1 bg-gradient-primary mb-8"></div>
-              </div>
-
-              {/* Skills as Tags */}
-              <div className="flex flex-wrap gap-3">
-                {skills.map((skill) => (
-                  <motion.span
-                    key={skill.name}
-                    whileHover={{ scale: 1.05 }}
-                    className="px-4 py-2 bg-portfolio-glass rounded-full text-text-secondary border border-white/10 
-                             hover:border-accent-primary/50 hover:text-accent-primary transition-all duration-300 cursor-default"
-                  >
-                    {skill.name}
-                  </motion.span>
-                ))}
-              </div>
+            <motion.div variants={itemVariants}>
+              <Card className="border border-border/50 bg-card/80 backdrop-blur-sm shadow-lg">
+                <CardHeader>
+                  <CardTitle className="text-3xl md:text-4xl font-bold text-foreground flex items-center gap-4">
+                    <span className="text-2xl">⚡</span>
+                    Technologies & Skills
+                  </CardTitle>
+                  <div className="w-16 h-1 bg-gradient-primary"></div>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-3">
+                    {skills.map((skill) => (
+                      <motion.span
+                        key={skill.name}
+                        whileHover={{ scale: 1.05 }}
+                        className="px-4 py-2 bg-secondary/50 rounded-full text-secondary-foreground border border-border/50 
+                                 hover:border-primary/50 hover:text-primary transition-all duration-300 cursor-default"
+                      >
+                        {skill.name}
+                      </motion.span>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </motion.div>
