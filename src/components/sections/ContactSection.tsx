@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 export const ContactSection = () => {
   const [ref, inView] = useInView({
@@ -26,8 +27,19 @@ export const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission (replace with actual EmailJS implementation)
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Replace these with your actual EmailJS credentials
+      const SERVICE_ID = "your_service_id";
+      const TEMPLATE_ID = "your_template_id";
+      const PUBLIC_KEY = "your_public_key";
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: "Medhansh Rawat", // Your name
+      };
+
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
       
       toast({
         title: "Message sent! 🎉",
@@ -36,6 +48,7 @@ export const ContactSection = () => {
       
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
+      console.error("EmailJS error:", error);
       toast({
         title: "Something went wrong",
         description: "Please try again or reach out via email directly.",
